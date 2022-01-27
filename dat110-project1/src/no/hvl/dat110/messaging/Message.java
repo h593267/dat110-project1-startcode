@@ -8,7 +8,18 @@ public class Message {
 
 	public Message(byte[] data) {
 		
-		// TODO - START
+		if(data != null && data.length < MessageConfig.SEGMENTSIZE) {
+			this.data[0] = (byte) data.length;
+			
+			for(int i = 1; i < data.length; i++) {
+				this.data[i] = data[i];
+			}
+			
+			// Padding
+			for(int i = data.length; i < MessageConfig.SEGMENTSIZE; i++) {
+				this.data[i] = 0;
+			}
+		}
 		
 		if (true)
 			throw new UnsupportedOperationException(TODO.constructor("Message"));
