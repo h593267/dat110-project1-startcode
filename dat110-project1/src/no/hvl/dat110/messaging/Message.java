@@ -15,7 +15,7 @@ public class Message {
 				this.data[i] = data[i];
 			}
 			
-			// Padding
+			// Padding, redundant
 			for(int i = data.length; i < MessageConfig.SEGMENTSIZE; i++) {
 				this.data[i] = 0;
 			}
@@ -23,8 +23,6 @@ public class Message {
 		
 		if (true)
 			throw new UnsupportedOperationException(TODO.constructor("Message"));
-			
-		// TODO - END
 	}
 
 	public byte[] getData() {
