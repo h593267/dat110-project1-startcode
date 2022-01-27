@@ -55,7 +55,7 @@ public class Connection {
 			e.printStackTrace();
 		}	
 		
-		message = new Message(data);
+		message = MessageUtils.decapsulate(data);
 		
 		return message;
 		
