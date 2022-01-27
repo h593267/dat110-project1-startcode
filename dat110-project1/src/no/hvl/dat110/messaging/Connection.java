@@ -34,30 +34,28 @@ public class Connection {
 
 	public void send(Message message) {
 
-		byte[] data;
+		byte[] data = MessageUtils.encapsulate(message);
 		
-		// TODO - START
-		// encapsulate the data contained in the message and write to the output stream
-		
-		if (true)
-			throw new UnsupportedOperationException(TODO.method());
-			
-		// TODO - END
+		try {
+			outStream.write(data);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 	}
 
 	public Message receive() {
 
+		byte[] data = new byte[MessageUtils.SEGMENTSIZE];
 		Message message = null;
-		byte[] data;
 		
-		// TODO - START
-		// read a segment from the input stream and decapsulate into message
+		try {
+			data = inStream.readNBytes(MessageUtils.SEGMENTSIZE);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}	
 		
-		if (true)
-			throw new UnsupportedOperationException(TODO.method());
-		
-		// TODO - END
+		message = new Message(data);
 		
 		return message;
 		
