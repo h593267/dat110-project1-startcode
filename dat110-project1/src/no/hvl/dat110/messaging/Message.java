@@ -6,7 +6,6 @@ public class Message {
 
 	private byte[] data;
 
-	//HEI
 	public Message(byte[] data) {
 		
 		if(data != null && data.length < MessageConfig.SEGMENTSIZE) {
